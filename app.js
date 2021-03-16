@@ -28,8 +28,18 @@ const deadline = document.querySelector(".deadline");
 const items = document.querySelectorAll(".deadline-format h4");
 // console.log(items);
 
+// get the currentDate and add 10 days so the timer example will alway work
+let tempDate = new Date();
+let tempYear = tempDate.getFullYear();
+let tempMonth = tempDate.getMonth();
+let tempDay = tempDate.getDate();
+
 // date= year/months(0 index based), date, hours, minutes, seconds
-let futureDate = new Date(2021, 5, 01, 18, 10, 0);
+// let futureDate = new Date(2021, 5, 01, 18, 10, 0);
+// console.log(futureDate);
+
+// 10 DAYS when application starts
+let futureDate = new Date(tempYear, tempMonth, tempDay + 10, 06, 15, 0);
 // console.log(futureDate);
 
 // extract the year
