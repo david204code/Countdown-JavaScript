@@ -61,8 +61,10 @@ function getRemainingTime() {
   // get current date and time
   const today = new Date().getTime();
   // console.log(today);
+
   // future time - current time
   const t = futureTime - today;
+
   // value in minisecond
   // console.log(t);
   // 1s = 1000ms
@@ -109,8 +111,14 @@ function getRemainingTime() {
   items.forEach(function (item, index) {
     item.innerHTML = format(values[index]);
   });
+  // when the time expired or countdown finishes, currentTiem bigger than future time
+  if (t < 0) {
+    clearInterval(countdown);
+    deadline.innerHTML = `<h4 class="expired">Time up</h4>`;
+  }
 }
 
 // countdown
 let countdown = setInterval(getRemainingTime, 1000);
+
 getRemainingTime();
